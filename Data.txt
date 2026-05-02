@@ -9,6 +9,9 @@ LPU is known for its placements, infrastructure, and cultural events.
 If any student have any kind of problem for example: Ragging, Marks issue, Attendence issue or anything any query then student has to go to DSR (Division of Stduent Relation) Block no 30 room no 103 
 
 my issue related to hostel or room then you should contact to Warden office of your hostel on ground floor or they can also put rms 
+Students can register for backlog courses via UMS and select class sections that fit their schedule.
+
+For turnstile access issues (face/fingerprint ID not working) or lost ID cards, please visit Room 103 in Block 31 (Admission Block).
 
 Accessing RMS via UMS (Regular/Distance)Log in to LPU UMS.Navigate to the Dashboard.Click on the RMS section.Select Log Request to raise a new query or Log Status to check existing ones.Specific RMS Paths & Use CasesDocument Submission (Distance/Online): UMS → RMS → Upload Pending Documents.Letter of Recommendation (LOR): UMS → RMS → Master Category → Records and Certificates → Sub Category → Letter of Recommendation.General Grievances/Queries: UMS → RMS → Log Request.Escalation: If not satisfied with RMS resolution, email the Departmental Student Grievance Redressal Committee (DSGRC) at doe.grc@lpu.co.in.
 

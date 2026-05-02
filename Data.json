@@ -39,7 +39,9 @@
         "general_grievances": "UMS → RMS → Log Request"
       },
       "escalation": "Email DSGRC at doe.grc@lpu.co.in"
-    }
+    },
+    "backlog": "Students can register for backlog courses via UMS and select class sections that fit their schedule.",
+    "turnstile_and_id_issues": "For turnstile access issues (face/fingerprint ID not working) or lost ID cards, please visit Room 103 in Block 31 (Admission Block)."
   },
   "placements": {
     "top_recruiters": [
