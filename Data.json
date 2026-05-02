@@ -289,5 +289,15 @@
   "parcel_and_post": {
     "online_parcels": "For parcels from Flipkart, Amazon, Myntra, etc., go to UniMall's 4th floor where they have Delhivery and other courier services.",
     "postal_services": "IndianPost is located near the apartments where you can get or send post."
+  },
+  "programs_and_initiatives": {
+    "edu_revolution": {
+      "description": "A program that gives students flexibility and rewards based on skills and achievements.",
+      "benefits": {
+        "RPL (Recognition of Prior Learning)": "Skip classes if you already know the subject.",
+        "Grade Upgradation": "Improve grades using certifications, patents, or research papers.",
+        "Attendance Relaxation": "Get attendance benefit for internships, certifications, or competitions."
+      }
+    }
   }
 }
