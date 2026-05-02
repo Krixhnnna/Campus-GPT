@@ -100,6 +100,83 @@ document.addEventListener('DOMContentLoaded', () => {
             time.textContent = msg.time;
 
             wrapper.appendChild(bubble);
+
+            if (msg.role !== 'user') {
+                const actionContainer = document.createElement('div');
+                actionContainer.className = 'message-actions';
+
+                const copySvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+                const checkSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                const speakSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
+
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'action-btn copy-btn';
+                copyBtn.innerHTML = copySvg;
+                copyBtn.title = 'Copy to clipboard';
+                copyBtn.onclick = () => {
+                    navigator.clipboard.writeText(msg.content).catch(err => console.error('Copy failed:', err));
+                    copyBtn.innerHTML = checkSvg;
+                    setTimeout(() => copyBtn.innerHTML = copySvg, 2000);
+                };
+
+                const stopSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"></rect></svg>`;
+                let isPlaying = false;
+
+                const speakBtn = document.createElement('button');
+                speakBtn.className = 'action-btn speak-btn';
+                speakBtn.innerHTML = speakSvg;
+                speakBtn.title = 'Read aloud';
+                speakBtn.onclick = async () => {
+                    if (isPlaying && window.currentAudio) {
+                        window.currentAudio.pause();
+                        window.currentAudio.currentTime = 0;
+                        window.currentAudio = null;
+                        isPlaying = false;
+                        speakBtn.innerHTML = speakSvg;
+                        return;
+                    }
+
+                    if (window.currentAudio) {
+                        window.currentAudio.pause();
+                        window.currentAudio.currentTime = 0;
+                    }
+
+                    try {
+                        speakBtn.innerHTML = stopSvg;
+                        isPlaying = true;
+
+                        const response = await fetch('/api/speak', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ text: msg.content })
+                        });
+
+                        if (!response.ok) throw new Error("Failed to generate speech");
+
+                        const blob = await response.blob();
+                        const url = URL.createObjectURL(blob);
+                        
+                        window.currentAudio = new Audio(url);
+                        window.currentAudio.play();
+
+                        window.currentAudio.onended = () => {
+                            isPlaying = false;
+                            speakBtn.innerHTML = speakSvg;
+                            URL.revokeObjectURL(url);
+                        };
+                    } catch (err) {
+                        console.error(err);
+                        isPlaying = false;
+                        speakBtn.innerHTML = speakSvg;
+                        alert("ElevenLabs API failed to load speech.");
+                    }
+                };
+
+                actionContainer.appendChild(copyBtn);
+                actionContainer.appendChild(speakBtn);
+                wrapper.appendChild(actionContainer);
+            }
+
             wrapper.appendChild(time);
             chatContainer.appendChild(wrapper);
         });
