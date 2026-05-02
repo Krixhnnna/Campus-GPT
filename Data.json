@@ -1,0 +1,293 @@
+{
+  "university": {
+    "name": "Lovely Professional University (LPU)",
+    "type": "Private University",
+    "location": "Chaheru, Phagwara, Punjab, India",
+    "address": "Jalandhar - Delhi, Grand Trunk Rd, Phagwara, Punjab 144411",
+    "established": 2005,
+    "operational_since": 2006,
+    "founder": "Lovely International Trust",
+    "act": "Lovely Professional University Act, 2005 (Punjab Act No. 25 of 2005)",
+    "campus_size": "600+ acres",
+    "students": "30,000+",
+    "faculty_and_staff": "4,000+",
+    "mascot": "\"Lovely\" brand",
+    "recognition": [
+      "UGC recognized",
+      "NAAC A++"
+    ]
+  },
+  "contact": {
+    "helpline": "+91-1824-404404",
+    "email": "admissions@lpu.co.in",
+    "website": "https://www.lpu.in"
+  },
+  "resolving_issues": {
+    "general_queries": "DSR (Division of Student Relation) Block no 30 room no 103",
+    "hostel_issues": "Warden office of your hostel on ground floor or via RMS",
+    "mental_health_and_counselling": "If feeling depressed or need counseling, contact the Department of Counselling and Happiness Block 11",
+    "lost_and_found": "If anything is lost, go to the Lost and Found department",
+    "rms_process": {
+      "access": "Log in to LPU UMS -> Dashboard -> RMS section",
+      "options": [
+        "Log Request to raise a new query",
+        "Log Status to check existing ones"
+      ],
+      "specific_paths": {
+        "document_submission": "UMS → RMS → Upload Pending Documents",
+        "lor": "UMS → RMS → Master Category → Records and Certificates → Sub Category → Letter of Recommendation",
+        "general_grievances": "UMS → RMS → Log Request"
+      },
+      "escalation": "Email DSGRC at doe.grc@lpu.co.in"
+    }
+  },
+  "placements": {
+    "top_recruiters": [
+      "Google",
+      "Microsoft",
+      "Amazon",
+      "Apple",
+      "Adobe"
+    ],
+    "highest_package": "Over 64 LPA (Claimed up to ₹3 Cr+)",
+    "annual_recruiters": "1000+",
+    "statistics": {
+      "batch_2023_vs_2024": {
+        "indian_placements": {
+          "2023": 7206,
+          "2024": 8069
+        },
+        "international_placements": {
+          "2023": 36,
+          "2024": 9
+        },
+        "total": {
+          "2023": 7242,
+          "2024": 8078
+        }
+      },
+      "school_wise_placement_percentage": {
+        "School of Computer Science and Engineering": {
+          "2023": 87.31,
+          "2024": 88.12
+        },
+        "School of Electronics and Electrical Engineering": {
+          "2023": 87.31,
+          "2024": 90.17
+        },
+        "School of Mechanical Engineering": {
+          "2023": 78.3,
+          "2024": 84.69
+        },
+        "School of Civil Engineering": {
+          "2023": 72.41,
+          "2024": 89.55
+        },
+        "School of Bio Engineering & Biosciences": {
+          "2023": 54.58,
+          "2024": 95.11
+        },
+        "School of Chemical Engineering & Physical Sciences": {
+          "2023": 57.89,
+          "2024": 87.14
+        },
+        "School of Computer Application": {
+          "2023": 75.74,
+          "2024": 91.59
+        },
+        "School of Agriculture": {
+          "2023": 75,
+          "2024": 95.57
+        },
+        "School of Polytechnic": {
+          "2023": 76.92,
+          "2024": 90.91
+        },
+        "Mittal School of Business": {
+          "2023": 73.48,
+          "2024": 83.34
+        },
+        "School of Hotel Management and Tourism": {
+          "2023": 80.5,
+          "2024": 69.4
+        },
+        "School of Architecture & Design": {
+          "2023": 87.64,
+          "2024": 98.77
+        },
+        "School of Design (Interior)": {
+          "2023": 69.81,
+          "2024": 77.77
+        },
+        "School of Design (Multimedia)": {
+          "2023": 77.65,
+          "2024": 86.69
+        },
+        "School of Design (Fashion)": {
+          "2023": 86.36,
+          "2024": 92.85
+        },
+        "School of Liberal and Creative Arts (Journalism)": {
+          "2023": 65.3,
+          "2024": 66.66
+        },
+        "School of Liberal and Creative Arts (Film, Theatre and Music)": {
+          "2023": 95,
+          "2024": 60
+        },
+        "School of Liberal and Creative Arts (Fine Arts)": {
+          "2023": 75,
+          "2024": 50
+        },
+        "School of Liberal and Creative Arts (Social Sciences & Languages)": {
+          "2023": 100,
+          "2024": 88.82
+        },
+        "School of Education": {
+          "2023": 89.28,
+          "2024": 87.5
+        },
+        "School of Physical Education": {
+          "2023": 97.61,
+          "2024": 97.43
+        },
+        "School of Law": {
+          "2023": 89.81,
+          "2024": 97.33
+        },
+        "School of Pharmaceutical Sciences": {
+          "2023": 92.52,
+          "2024": 87.01
+        },
+        "School of Allied Medical Sciences": {
+          "2023": 96.42,
+          "2024": 51.49
+        },
+        "TOTAL": {
+          "2023": 76.15,
+          "2024": 88.47
+        }
+      },
+      "placements_by_industry": {
+        "IT": 641,
+        "EDUCATIONAL SERVICES": 172,
+        "CONSULTANCY SERVICES": 136,
+        "AGRICULTURE & AGRI-PROCESSING": 113,
+        "MANUFACTURING": 103,
+        "FINANCIAL SERVICE": 86,
+        "PHARMACEUTICALS/BIOTECH": 72,
+        "HOTELS": 45,
+        "IT SOFTWARE DEVELOPMENT": 45,
+        "HEALTH CARE": 42,
+        "FMCG": 42,
+        "RETAIL": 41,
+        "ELECTRONICS": 40,
+        "REAL ESTATE": 39,
+        "HOSPITALITY": 36,
+        "CORE ENGINEERING": 32,
+        "MEDIA": 30
+      }
+    }
+  },
+  "facilities": [
+    "University Mall",
+    "Indoor and Outdoor Sports Complex",
+    "Modern Auditoriums and Libraries",
+    "In-campus residential facilities (AC/Non-AC, 1 to multi-seater, Gym, Laundry, Swimming pool, Sports facilities)",
+    "Hospital",
+    "Food Court"
+  ],
+  "academics": {
+    "total_schools": "26+",
+    "total_programs": "150+",
+    "major_schools": [
+      "Mittal School of Business (Management)",
+      "School of Computer Science and Engineering",
+      "School of Agriculture",
+      "School of Pharmaceutical Sciences",
+      "School of Law",
+      "School of Fashion Design",
+      "School of Architecture and Design"
+    ],
+    "departments": [
+      "Engineering",
+      "Computer Science",
+      "Business / MBA",
+      "Law",
+      "Pharmacy",
+      "Agriculture",
+      "Hotel Management",
+      "Fashion Design",
+      "Architecture",
+      "Journalism",
+      "Physiotherapy",
+      "Biotechnology",
+      "Arts & Humanities",
+      "Commerce",
+      "Education",
+      "Performing Arts",
+      "Physical Education",
+      "Polytechnic"
+    ]
+  },
+  "popular_courses": {
+    "ug": [
+      "B.Tech",
+      "BCA",
+      "BBA",
+      "B.Com",
+      "BA",
+      "B.Sc",
+      "B.Pharm",
+      "B.Arch",
+      "B.Des",
+      "BPT",
+      "B.Ed",
+      "BA LLB",
+      "BBA LLB",
+      "Hotel Management"
+    ],
+    "pg": [
+      "M.Tech",
+      "MCA",
+      "MBA",
+      "M.Com",
+      "MA",
+      "M.Sc",
+      "M.Pharm",
+      "LLM",
+      "MPT"
+    ],
+    "doctoral": [
+      "PhD in many disciplines"
+    ]
+  },
+  "fees_estimated": {
+    "btech": "Around ₹1.4L to ₹2L+ per semester (e.g. Some CSE specializations = ₹2,00,000/sem before scholarship)",
+    "mba": "Around ₹2L+ per year",
+    "bca_bba": "Usually lower than B.Tech, varies by specialization",
+    "phd": "Many PhD programs show ₹50,000 fee category",
+    "exam_fee": "₹5,000 per semester mentioned for 1st semester"
+  },
+  "important_blocks": {
+    "central_departments": "Blocks 29, 30, 32",
+    "student_welfare_wing": "Block 13 DSW Block (Known for clubs, cultural activities, and student welfare)",
+    "divisions": [
+      "Examination Division",
+      "DAA (Division of Academic Affairs)",
+      "Admin Blocks"
+    ]
+  },
+  "food_and_dining": {
+    "best_food_shops": [
+      "Kitchen Ette in CC (Near Uni Hospital)",
+      "Bokkitokki for Korean Food",
+      "Lovely Bake Studio for Desserts and icecream (near apartment)",
+      "Lovely Sweets for Sweets, samosas and all"
+    ]
+  },
+  "parcel_and_post": {
+    "online_parcels": "For parcels from Flipkart, Amazon, Myntra, etc., go to UniMall's 4th floor where they have Delhivery and other courier services.",
+    "postal_services": "IndianPost is located near the apartments where you can get or send post."
+  }
+}
