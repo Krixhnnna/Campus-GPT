@@ -1,30 +1,31 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+require("dotenv").config();
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(express.static("public"));
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
-export async function POST(req: Request) {
+app.post("/api/chat", async (req, res) => {
   try {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey || apiKey === "your_api_key_here") {
-      return NextResponse.json(
-        { error: "Gemini API Key is missing or invalid. Please check your .env.local file." },
-        { status: 500 }
-      );
+      return res.status(500).json({ error: "Gemini API Key is missing or invalid. Please check your .env file." });
     }
 
-    const { messages } = await req.json();
+    const { messages } = req.body;
     const lastMessage = messages[messages.length - 1].content;
 
     // Read Data.json for context
-    const dataPath = path.join(process.cwd(), "Data.json");
+    const dataPath = path.join(__dirname, "Data.json");
     if (!fs.existsSync(dataPath)) {
-      return NextResponse.json(
-        { error: "Data.json not found. Please ensure it exists in the root directory." },
-        { status: 500 }
-      );
+      return res.status(500).json({ error: "Data.json not found. Please ensure it exists in the root directory." });
     }
     const campusData = fs.readFileSync(dataPath, "utf8");
 
@@ -51,12 +52,13 @@ export async function POST(req: Request) {
     const response = await result.response;
     const text = response.text();
 
-    return NextResponse.json({ role: "assistant", content: text });
-  } catch (error: any) {
+    res.json({ role: "assistant", content: text });
+  } catch (error) {
     console.error("Error in Gemini API:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to generate response" },
-      { status: 500 }
-    );
+    res.status(500).json({ error: error.message || "Failed to generate response" });
   }
-}
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
