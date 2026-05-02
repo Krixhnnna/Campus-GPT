@@ -25,6 +25,8 @@ Academic Departments:
 - School of Architecture and Design
 
 Placements:
+- PEP (Professional Enhancement Program) classes prepare students for placements by teaching specific industry skills like DSA, Web Dev, and Data Science. Industry mentors often teach these regular sessions.
+- A special merit-based PEP class, exclusively for 2nd-year CSE students, also features industry mentors and helps students become placement-ready early, allowing them to sit for campus placements in their 5th semester.
 - LPU has a strong placement record with companies like Google, Microsoft, Amazon, and Apple recruiting students.
 - Highest package offered: Over 64 LPA (Lakhs Per Annum).
 - More than 1000+ recruiters visit the campus annually.
@@ -159,3 +161,6 @@ Address: Jalandhar - Delhi, Grand Trunk Rd, Phagwara, Punjab 144411
 Helpline: +91-1824-404404
 Email: admissions@lpu.co.in
 Website: https://www.lpu.in
+
+Attendance and Leaves:
+- Duty Leave (DL) is granted only for officially announced LPU sessions that explicitly provide it. Students can avail a maximum of 10% of their total semester classes as DL.

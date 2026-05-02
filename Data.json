@@ -44,6 +44,10 @@
     "turnstile_and_id_issues": "For turnstile access issues (face/fingerprint ID not working) or lost ID cards, please visit Room 103 in Block 31 (Admission Block)."
   },
   "placements": {
+    "pep_classes": {
+      "regular": "Professional Enhancement Program (PEP) classes are designed for students registered for placements. They offer training in specific skills like DSA, Web Development, and Data Science. Industry mentors often come to teach these classes to make students industry-ready.",
+      "cse_special_merit": "A special merit-based PEP class is available exclusively for 2nd-year CSE students. It also features teaching by industry mentors and prepares students for placements early, allowing them to participate in campus placements starting in their 5th semester."
+    },
     "top_recruiters": [
       "Google",
       "Microsoft",
@@ -301,5 +305,8 @@
         "Attendance Relaxation": "Get attendance benefit for internships, certifications, or competitions."
       }
     }
+  },
+  "attendance_and_leaves": {
+    "duty_leave": "Duty Leave (DL) is granted only for officially announced LPU sessions that explicitly provide it. Students can avail a maximum of 10% of their total semester classes as DL."
   }
 }
