@@ -10,16 +10,20 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static("public"));
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+const apiKeys = process.env.GEMINI_API_KEYS 
+  ? process.env.GEMINI_API_KEYS.split(',').map(key => key.trim()).filter(Boolean)
+  : [];
+
+if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== "your_api_key_here" && !apiKeys.includes(process.env.GEMINI_API_KEY)) {
+  apiKeys.push(process.env.GEMINI_API_KEY);
+}
 
 app.post("/api/chat", async (req, res) => {
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey || apiKey === "your_api_key_here") {
-      return res.status(500).json({ error: "Gemini API Key is missing or invalid. Please check your .env file." });
-    }
-
     const { messages } = req.body;
+    if (!messages || messages.length === 0) {
+      return res.status(400).json({ error: "Messages array is required." });
+    }
     const lastMessage = messages[messages.length - 1].content;
 
     // Read Data.json for context
@@ -28,8 +32,6 @@ app.post("/api/chat", async (req, res) => {
       return res.status(500).json({ error: "Data.json not found. Please ensure it exists in the root directory." });
     }
     const campusData = fs.readFileSync(dataPath, "utf8");
-
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const systemPrompt = `
       You are Campus GPT, an AI assistant for Lovely Professional University (LPU).
@@ -48,17 +50,39 @@ app.post("/api/chat", async (req, res) => {
       User message: ${lastMessage}
     `;
 
-    const result = await model.generateContent(systemPrompt);
-    const response = await result.response;
-    const text = response.text();
+    let success = false;
+    let text = "";
+
+    for (const key of apiKeys) {
+      try {
+        const genAI = new GoogleGenerativeAI(key);
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        const result = await model.generateContent(systemPrompt);
+        const response = await result.response;
+        text = response.text();
+        success = true;
+        break; // Stop trying keys if successful
+      } catch (err) {
+        console.error("API Key failed:", key.substring(0, 5) + "...", err.message);
+        // Continue to the next key
+      }
+    }
+
+    if (!success) {
+      return res.status(500).json({ error: "Please slow down.. API is exausted" });
+    }
 
     res.json({ role: "assistant", content: text });
   } catch (error) {
-    console.error("Error in Gemini API:", error);
-    res.status(500).json({ error: error.message || "Failed to generate response" });
+    console.error("Error in chat route:", error);
+    res.status(500).json({ error: "Please slow down.. API is exausted" });
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+}
+
+module.exports = app;
