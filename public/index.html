@@ -19,18 +19,25 @@
                     <p>Lovely Professional University</p>
                 </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 20px;">
+            <div class="header-actions">
                 <div class="status-indicator">
                     <div class="status-dot"></div>
-                    <span>Online</span>
+                    <span class="status-text">Online</span>
                 </div>
                 <button 
-                    id="clear-btn"
-                    style="background: rgba(0,0,0,0.05); border: none; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; font-weight: 600; color: var(--text-muted); transition: all 0.2s;"
-                    onmouseover="this.style.background='rgba(0,0,0,0.1)'"
-                    onmouseout="this.style.background='rgba(0,0,0,0.05)'"
+                    id="recent-btn"
+                    class="header-btn secondary"
                 >
-                    Clear
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Recent</span>
+                </button>
+                <button 
+                    id="new-chat-btn"
+                    class="header-btn primary"
+                    title="Start a new conversation"
+                >
+                    <span>New Chat</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
             </div>
         </header>
@@ -83,6 +90,19 @@
         </form>
     </div>
     
+    <div id="history-overlay" class="history-overlay"></div>
+    <div id="history-drawer" class="history-drawer">
+        <div class="drawer-header">
+            <h3>Recent Chats</h3>
+            <button id="close-history" class="close-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div id="history-list" class="history-list">
+            <div class="empty-history">No recent chats yet</div>
+        </div>
+    </div>
+
     <script src="script.js?v=2"></script>
 </body>
 </html>

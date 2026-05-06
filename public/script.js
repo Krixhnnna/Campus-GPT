@@ -3,16 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chat-form');
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
-    const clearButton = document.getElementById('clear-btn');
+    const newChatButton = document.getElementById('new-chat-btn');
     const micButton = document.getElementById('mic-button');
     const micIconInactive = document.getElementById('mic-icon-inactive');
     const micIconActive = document.getElementById('mic-icon-active');
+
+    const recentButton = document.getElementById('recent-btn');
+    const historyDrawer = document.getElementById('history-drawer');
+    const historyOverlay = document.getElementById('history-overlay');
+    const closeHistory = document.getElementById('close-history');
+    const historyList = document.getElementById('history-list');
 
     let messages = [];
     let isLoading = false;
     let isListening = false;
     let recognition = null;
     let initialInput = "";
+    let currentSessionId = Date.now(); // Track current session
 
     // Initialize Speech Recognition
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -69,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (recognition) {
                 try {
                     recognition.start();
-                } catch(e) {
+                } catch (e) {
                     console.error("Error starting recognition", e);
                 }
             } else {
@@ -86,15 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderMessages = () => {
         chatContainer.innerHTML = '';
-        
+
         messages.forEach(msg => {
             const wrapper = document.createElement('div');
             wrapper.className = `message-wrapper ${msg.role === 'user' ? 'user' : 'bot'}`;
-            
+
             const bubble = document.createElement('div');
             bubble.className = 'message-bubble';
             bubble.textContent = msg.content;
-            
+
             const time = document.createElement('div');
             time.className = 'message-time';
             time.textContent = msg.time;
@@ -155,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         const blob = await response.blob();
                         const url = URL.createObjectURL(blob);
-                        
+
                         window.currentAudio = new Audio(url);
                         window.currentAudio.play();
 
@@ -215,18 +222,88 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMessages();
     };
 
+    const saveChatToHistory = () => {
+        // Only save if there are messages besides the initial greeting
+        if (messages.length <= 1) return;
+
+        const history = JSON.parse(localStorage.getItem('campus_gpt_history') || '[]');
+        const sessionIndex = history.findIndex(s => s.id === currentSessionId);
+
+        const firstUserMsg = messages.find(m => m.role === 'user')?.content || "New Chat";
+        const sessionData = {
+            id: currentSessionId,
+            title: firstUserMsg,
+            date: new Date().toLocaleString(),
+            messages: messages
+        };
+
+        if (sessionIndex > -1) {
+            history[sessionIndex] = sessionData;
+        } else {
+            history.unshift(sessionData);
+        }
+
+        // Limit history to 20 items
+        localStorage.setItem('campus_gpt_history', JSON.stringify(history.slice(0, 20)));
+    };
+
+    const loadHistoryItems = () => {
+        const history = JSON.parse(localStorage.getItem('campus_gpt_history') || '[]');
+        historyList.innerHTML = '';
+
+        if (history.length === 0) {
+            historyList.innerHTML = '<div class="empty-history">No recent chats yet</div>';
+            return;
+        }
+
+        history.forEach(session => {
+            const item = document.createElement('div');
+            item.className = 'history-item';
+            item.innerHTML = `
+                <div class="history-item-title">${session.title}</div>
+                <div class="history-item-date">${session.date}</div>
+            `;
+            item.onclick = () => {
+                messages = [...session.messages];
+                currentSessionId = session.id;
+                renderMessages();
+                toggleHistory(false);
+            };
+            historyList.appendChild(item);
+        });
+    };
+
+    const toggleHistory = (show) => {
+        if (show) {
+            loadHistoryItems();
+            historyDrawer.classList.add('active');
+            historyOverlay.classList.add('active');
+        } else {
+            historyDrawer.classList.remove('active');
+            historyOverlay.classList.remove('active');
+        }
+    };
+
+    recentButton.addEventListener('click', () => toggleHistory(true));
+    closeHistory.addEventListener('click', () => toggleHistory(false));
+    historyOverlay.addEventListener('click', () => toggleHistory(false));
+
     const clearChat = () => {
+        saveChatToHistory(); // Save before clearing
+        currentSessionId = Date.now(); // Start a new session
+        isLoading = false; // Stop any pending response
         messages = [
             {
                 role: "assistant",
-                content: "Chat cleared. How can I help you with LPU today?",
+                content: "Welcome to new Chat. How can I help you with LPU today?",
                 time: formatTime()
             }
         ];
         renderMessages();
+        updateSendButtonState(); // Ensure button state is updated
     };
 
-    clearButton.addEventListener('click', clearChat);
+    newChatButton.addEventListener('click', clearChat);
 
     const updateSendButtonState = () => {
         sendButton.disabled = !chatInput.value.trim() || isLoading;
@@ -236,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chatForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         if (isListening) {
             stopListening();
         }
@@ -264,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const data = await response.json();
-            
+
             if (data.error) throw new Error(data.error);
 
             messages.push({
@@ -282,6 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally {
             isLoading = false;
             renderMessages();
+            saveChatToHistory(); // Save after each exchange
         }
     });
 
