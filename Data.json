@@ -312,5 +312,26 @@
   "attendance_and_leaves": {
     "duty_leave": "Duty Leave (DL) is granted only for officially announced LPU sessions that explicitly provide it. Students can avail a maximum of 10% of their total semester classes as DL.",
     "mooc_attendance_relaxation": "Students who are actively pursuing a MOOC course (e.g., on Coursera, NPTEL, edX, or similar platforms) are eligible for up to 10% attendance relaxation in their current semester courses. This benefit is available under the Edu Revolution program and must be applied through the proper channel on UMS."
+  },
+  "innovation_studio": {
+    "name": "Innovation Studio",
+    "location": "Block 40, LPU Campus",
+    "description": "The Innovation Studio at Block 40 is LPU's dedicated space for students who want to go beyond textbooks and work on real-world projects. It is a collaborative, open environment where creativity meets technology and ideas turn into reality.",
+    "what_happens_there": [
+      "Students work on live and ongoing innovative projects across domains like AI, robotics, IoT, app development, social impact, and more.",
+      "Interdisciplinary teams collaborate to build prototypes, startup ideas, and research-based solutions.",
+      "Mentorship and guidance is available from faculty and industry professionals.",
+      "Students can showcase their work, participate in hackathons, and pitch ideas."
+    ],
+    "how_to_join": "Any student interested in working on a project can simply walk into Block 40 — Innovation Studio. You can join an existing ongoing project by finding a team that matches your interest, or you can start your own project and build your own team from scratch.",
+    "team_formation": "Students are free to form their own teams at the Innovation Studio. There are no restrictions on team size or department — anyone from any school or program can collaborate. This cross-disciplinary approach helps in building well-rounded, innovative solutions.",
+    "who_can_join": "All LPU students, regardless of their program, year, or branch, are welcome to visit and work at the Innovation Studio.",
+    "benefits": [
+      "Hands-on project experience that strengthens your resume and portfolio.",
+      "Opportunity to work with like-minded peers and mentors.",
+      "Exposure to real-world problem solving and startup culture.",
+      "Chance to apply for patents, publish papers, and participate in national-level competitions.",
+      "Work done here can be used for Grade Upgradation under the Edu Revolution program."
+    ]
   }
 }
