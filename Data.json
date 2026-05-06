@@ -42,7 +42,8 @@
     },
     "backlog": "Students can register for backlog courses via UMS and select class sections that fit their schedule.",
     "turnstile_and_id_issues": "For turnstile access issues (face/fingerprint ID not working) or lost ID cards, please visit Room 103 in Block 31 (Admission Block).",
-    "transport_and_bus_services": "If anyone has any queries related to transport or bus services, please visit Block 29, Room 304. For any queries regarding transport or bus services, kindly contact at Block 29, Room 304."
+    "transport_and_bus_services": "If anyone has any queries related to transport or bus services, please visit Block 29, Room 304. For any queries regarding transport or bus services, kindly contact at Block 29, Room 304.",
+    "innovation_and_project_work": "If anyone wants to work on projects, they can visit the Innovation Block — Block 40, Innovation Studio. Various exciting projects are going on there. Students can form their own teams and work collaboratively on innovative ideas. Block 40 Innovation Studio is the go-to place for project enthusiasts looking to build, collaborate, and innovate."
   },
   "placements": {
     "pep_classes": {
@@ -279,6 +280,7 @@
   "important_blocks": {
     "central_departments": "Blocks 29, 30, 32",
     "student_welfare_wing": "Block 13 DSW Block (Known for clubs, cultural activities, and student welfare)",
+    "innovation_studio": "Block 40 — Innovation Studio: A dedicated space for students interested in working on projects. Multiple ongoing projects are available to join, or students can start their own. Teams can be formed freely, making it an ideal hub for innovation, collaboration, and hands-on learning.",
     "divisions": [
       "Examination Division",
       "DAA (Division of Academic Affairs)",
@@ -299,15 +301,16 @@
   },
   "programs_and_initiatives": {
     "edu_revolution": {
-      "description": "A program that gives students flexibility and rewards based on skills and achievements.",
+      "description": "Edu Revolution is LPU's flagship program that gives students flexibility and rewards based on their skills, prior knowledge, and achievements. It empowers students to skip redundant learning, earn better grades, and get attendance relief for productive activities.",
       "benefits": {
-        "RPL (Recognition of Prior Learning)": "Skip classes if you already know the subject.",
-        "Grade Upgradation": "Improve grades using certifications, patents, or research papers.",
-        "Attendance Relaxation": "Get attendance benefit for internships, certifications, or competitions."
+        "RPL (Recognition of Prior Learning)": "If a student has prior knowledge of any subject currently offered in their semester, they can apply for RPL (Recognition of Prior Learning) and get exempted from that course. This means they don't have to attend classes for a subject they already know — they can use that time for other productive work instead.",
+        "Grade Upgradation": "If a student has an industry certification (e.g., AWS, Google, Microsoft), a published patent, or a completed project, they can apply for Grade Upgradation under Edu Revolution. This allows them to improve their existing grade in a subject by showcasing their real-world skills and achievements.",
+        "Attendance Relaxation (MOOC)": "If a student is enrolled in a MOOC (Massive Open Online Course) from platforms like Coursera, NPTEL, edX, etc., they can avail up to 10% attendance relaxation in their regular classes. This encourages students to upskill online without worrying about attendance shortfall."
       }
     }
   },
   "attendance_and_leaves": {
-    "duty_leave": "Duty Leave (DL) is granted only for officially announced LPU sessions that explicitly provide it. Students can avail a maximum of 10% of their total semester classes as DL."
+    "duty_leave": "Duty Leave (DL) is granted only for officially announced LPU sessions that explicitly provide it. Students can avail a maximum of 10% of their total semester classes as DL.",
+    "mooc_attendance_relaxation": "Students who are actively pursuing a MOOC course (e.g., on Coursera, NPTEL, edX, or similar platforms) are eligible for up to 10% attendance relaxation in their current semester courses. This benefit is available under the Edu Revolution program and must be applied through the proper channel on UMS."
   }
 }
